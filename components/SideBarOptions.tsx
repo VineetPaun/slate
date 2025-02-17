@@ -4,6 +4,7 @@ import { doc } from "firebase/firestore"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { useDocumentData } from "react-firebase-hooks/firestore"
+import { Button } from "./ui/button"
 
 const SideBarOptions = ({ href, id }: {
     href: string
@@ -14,7 +15,7 @@ const SideBarOptions = ({ href, id }: {
     const pathname = usePathname()
     const isActive = href.includes(pathname) && pathname !== "/"
 
-    if (!data) return null
+        if (!data) return null
 
     return (
         <div>
@@ -23,6 +24,7 @@ const SideBarOptions = ({ href, id }: {
                 className={`border p-2 rounded-md ${isActive ? "bg-gray-300 font-bold border-black" : "border-gray-400"}`}
             >
                 <p className="truncate">{data?.title}</p>
+                {/* <Button className="truncate">{data?.title}</Button> */}
             </Link>
         </div>
     )
